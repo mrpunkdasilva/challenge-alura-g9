@@ -61,4 +61,4 @@ Para configurar e rodar este projeto em sua máquina local, siga os passos abaix
 
 ## Video Demostração 
 
-<video src=".github/record_app_runing.mp4" controls></video>
+<video src="https://github.com/user-attachments/assets/60dc0fc0-5d3f-4255-8791-ebbf500ce502" controls></video>
