@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Glitch Gift</title>
+  </head>
+  <body>
+    <div id="app">
+      <header>
+        <img src="/logo.svg" class="logo" alt="Glitch Gift Logo" />
+        <h1>Glitch Gift</h1>
+      </header>
+
+      <main>
+        <section class="input-section">
+          <h2>Add a Friend</h2>
+          <form id="add-friend-form">
+            <input type="text" id="friend-name" placeholder="Enter a friend's name" autocomplete="off" />
+            <button type="submit" id="add-friend">Add</button>
+          </form>
+        </section>
+
+        <section class="list-section">
+          <h2>Friends List</h2>
+          <ul id="friends-list">
+          </ul>
+        </section>
+
+        <section class="draw-section">
+          <button id="draw-friend">Draw Secret Friend</button>
+          <h2>Your Secret Friend is...</h2>
+          <p id="secret-friend-result">?</p>
+        </section>
+      </main>
+
+      <div id="popup" class="hidden">
+        <div class="popup-content">
+          <p id="popup-message"></p>
+          <button id="close-popup">Close</button>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
