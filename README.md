@@ -1,8 +1,14 @@
 # Glitch Gift
 
-![Glitch Gift Logo](.github/logo.svg)
+<p align="center">
+  <img src=".github/logo.svg" width="200" alt="Glitch Gift Logo">
+</p>
 
 Este projeto é uma aplicação simples para sortear um "amigo secreto" de forma aleatória. É uma ferramenta divertida para grupos de amigos ou familiares que desejam organizar um sorteio de presentes de forma digital.
+
+
+> <marquee>Desafie seus amigos e descubra quem é o seu amigo secreto!</marquee>
+
 
 ## Funcionalidades
 
