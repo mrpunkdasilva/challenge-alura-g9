@@ -1,0 +1,349 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --primary-color: #00ffff;
+  --secondary-color: #ff00ff;
+  --background-color: #1a1a1a;
+  --text-color: #ffffff;
+  --border-color: #444;
+  --glitch-text-shadow-1: -0.05em 0 0 var(--secondary-color), 0.05em 0 0 var(--primary-color);
+  --glitch-text-shadow-2: -0.05em 0 0 var(--primary-color), 0.05em 0 0 var(--secondary-color);
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.logo.vanilla:hover {
+  filter: drop-shadow(0 0 2em #f7df1eaa);
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+button:hover {
+  border-color: #646cff;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+
+  a:hover {
+    color: #747bff;
+  }
+
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: 'Courier New', Courier, monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+  padding: 1rem;
+}
+
+#app {
+  width: 100%;
+  max-width: 600px;
+  border: 2px solid var(--primary-color);
+  padding: 2rem;
+  box-shadow: 0 0 15px var(--primary-color), 0 0 25px var(--secondary-color) inset;
+  animation: glitch-border 5s infinite alternate;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.logo {
+  height: 4em;
+  animation: glitch-logo 6s infinite alternate;
+}
+
+h1 {
+  font-size: 2.5em;
+  text-transform: uppercase;
+  text-shadow: var(--glitch-text-shadow-1);
+  animation: glitch-text 3s infinite alternate;
+  margin: 0;
+}
+
+section {
+  margin-bottom: 2rem;
+}
+
+h2 {
+  color: var(--primary-color);
+  text-transform: uppercase;
+  font-size: 1.5em;
+  text-shadow: var(--glitch-text-shadow-2);
+}
+
+input[type="text"] {
+  background-color: transparent;
+  border: 1px solid var(--secondary-color);
+  color: var(--text-color);
+  padding: 0.8em;
+  font-family: inherit;
+  width: 60%;
+}
+
+button {
+  background-color: transparent;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  padding: 0.8em 1.5em;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+button:hover {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+}
+
+#add-friend-form {
+  display: flex;
+  justify-content: center;
+}
+
+#friends-list {
+  list-style: none;
+  padding: 0;
+  min-height: 50px;
+}
+
+#friends-list li {
+  margin: 0.5em 0;
+  font-size: 1.2em;
+}
+
+#secret-friend-result {
+  font-size: 2em;
+  color: var(--secondary-color);
+  text-shadow: var(--glitch-text-shadow-1);
+  min-height: 1.5em;
+}
+
+/* Popup Styles */
+#popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+#popup:not(.hidden) {
+  opacity: 1;
+}
+
+.popup-content {
+  background-color: var(--background-color);
+  padding: 2rem;
+  border: 2px solid var(--secondary-color);
+  box-shadow: 0 0 15px var(--secondary-color);
+  text-align: center;
+  max-width: 80%;
+  animation: glitch-popup 0.5s forwards;
+}
+
+#popup.hidden {
+  display: none;
+}
+
+#popup-message {
+  margin: 0 0 1.5rem 0;
+  font-size: 1.2em;
+}
+
+#close-popup {
+  border-color: var(--secondary-color);
+  color: var(--secondary-color);
+}
+
+#close-popup:hover {
+  background-color: var(--secondary-color);
+  color: var(--background-color);
+}
+
+@keyframes glitch-popup {
+  from {
+    transform: scale(0.5) skew(-15deg);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1) skew(0);
+    opacity: 1;
+  }
+}
+
+/* Keyframes */
+@keyframes glitch-border {
+  0% {
+    box-shadow: 0 0 15px var(--primary-color), 0 0 25px var(--secondary-color) inset;
+  }
+
+  50% {
+    box-shadow: 0 0 20px var(--secondary-color), 0 0 30px var(--primary-color) inset;
+  }
+
+  100% {
+    box-shadow: 0 0 15px var(--primary-color), 0 0 25px var(--secondary-color) inset;
+  }
+}
+
+@keyframes glitch-text {
+
+  0%,
+  49% {
+    text-shadow: var(--glitch-text-shadow-1);
+  }
+
+  50%,
+  99% {
+    text-shadow: var(--glitch-text-shadow-2);
+  }
+
+  100% {
+    text-shadow: var(--glitch-text-shadow-1);
+  }
+}
+
+@keyframes glitch-text-2 {
+  0% {
+    transform: translate(0);
+    text-shadow: none;
+  }
+
+  20% {
+    transform: translate(-3px, 3px);
+    text-shadow: var(--glitch-text-shadow-1);
+  }
+
+  40% {
+    transform: translate(-3px, -3px);
+  }
+
+  60% {
+    transform: translate(3px, 3px);
+    text-shadow: var(--glitch-text-shadow-2);
+  }
+
+  80% {
+    transform: translate(3px, -3px);
+  }
+
+  100% {
+    transform: translate(0);
+    text-shadow: none;
+  }
+}
+
+@keyframes glitch-logo {
+  0% {
+    filter: drop-shadow(0 0 0.5em var(--primary-color));
+  }
+
+  50% {
+    filter: drop-shadow(0 0 1em var(--secondary-color));
+  }
+
+  100% {
+    filter: drop-shadow(0 0 0.5em var(--primary-color));
+  }
+}
