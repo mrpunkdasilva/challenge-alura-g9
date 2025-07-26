@@ -57,7 +57,7 @@ Para configurar e rodar este projeto em sua máquina local, siga os passos abaix
 
 ## Screenshots
 
-![Main Screen(https://github.com/mrpunkdasilva/challenge-alura-g9/raw/refs/heads/main/.github/record_app_runing.mp4)
+![Main Screen](.github/main_screen.png)
 
 ## Video Demostração 
 
