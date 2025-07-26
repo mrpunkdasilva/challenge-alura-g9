@@ -1,17 +1,5 @@
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
   --primary-color: #00ffff;
   --secondary-color: #ff00ff;
   --background-color: #1a1a1a;
@@ -20,96 +8,6 @@
   --glitch-text-shadow-1: -0.05em 0 0 var(--secondary-color), 0.05em 0 0 var(--primary-color);
   --glitch-text-shadow-2: -0.05em 0 0 var(--primary-color), 0.05em 0 0 var(--secondary-color);
 }
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-
-.logo.vanilla:hover {
-  filter: drop-shadow(0 0 2em #f7df1eaa);
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-
-button:hover {
-  border-color: #646cff;
-}
-
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-
-  a:hover {
-    color: #747bff;
-  }
-
-  button {
-    background-color: #f9f9f9;
-  }
-}
-
 
 body {
   background-color: var(--background-color);
@@ -121,6 +19,7 @@ body {
   min-height: 100vh;
   text-align: center;
   padding: 1rem;
+  margin: 0;
 }
 
 #app {
@@ -130,6 +29,8 @@ body {
   padding: 2rem;
   box-shadow: 0 0 15px var(--primary-color), 0 0 25px var(--secondary-color) inset;
   animation: glitch-border 5s infinite alternate;
+  margin: 0 auto;
+  text-align: center;
 }
 
 header {
@@ -143,6 +44,13 @@ header {
 .logo {
   height: 4em;
   animation: glitch-logo 6s infinite alternate;
+  padding: 0;
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+.logo:hover {
+    filter: drop-shadow(0 0 1.5em var(--primary-color));
 }
 
 h1 {
@@ -151,6 +59,7 @@ h1 {
   text-shadow: var(--glitch-text-shadow-1);
   animation: glitch-text 3s infinite alternate;
   margin: 0;
+  line-height: 1.1;
 }
 
 section {
@@ -180,12 +89,22 @@ button {
   padding: 0.8em 1.5em;
   cursor: pointer;
   text-transform: uppercase;
-  transition: background-color 0.3s, color 0.3s;
+  transition: background-color 0.3s, color 0.3s, border-color 0.25s;
+  border-radius: 8px;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
 }
 
 button:hover {
   background-color: var(--primary-color);
   color: var(--background-color);
+  border-color: var(--primary-color);
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
 }
 
 #add-friend-form {
@@ -212,23 +131,24 @@ button:hover {
 }
 
 /* Popup Styles */
-#popup {
+.popup {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.8);
-  display: flex;
-  justify-content: center;
-  align-items: center;
   z-index: 1000;
   opacity: 0;
+  display: none;
   transition: opacity 0.3s ease-in-out;
+  justify-content: center;
+  align-items: center;
 }
 
-#popup:not(.hidden) {
+.popup.visible {
   opacity: 1;
+  display: flex;
 }
 
 .popup-content {
@@ -238,11 +158,10 @@ button:hover {
   box-shadow: 0 0 15px var(--secondary-color);
   text-align: center;
   max-width: 80%;
-  animation: glitch-popup 0.5s forwards;
 }
 
-#popup.hidden {
-  display: none;
+.popup:not(.hidden) .popup-content {
+    animation: glitch-popup 0.5s forwards;
 }
 
 #popup-message {
@@ -260,12 +179,50 @@ button:hover {
   color: var(--background-color);
 }
 
+/* Shuffle Popup */
+#shuffle-popup .popup-content {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 15px var(--primary-color);
+}
+
+#shuffle-name {
+    font-size: 3em;
+    color: var(--primary-color);
+    text-shadow: var(--glitch-text-shadow-2);
+    min-height: 1.5em;
+    animation: shuffle-glitch 0.1s infinite;
+}
+
+
+@keyframes shuffle-glitch {
+  0% {
+    text-shadow: var(--glitch-text-shadow-1);
+    transform: translate(0);
+  }
+  25% {
+    text-shadow: var(--glitch-text-shadow-2);
+    transform: translate(2px, -2px);
+  }
+  50% {
+     text-shadow: var(--glitch-text-shadow-1);
+    transform: translate(-2px, 2px);
+  }
+  75% {
+     text-shadow: var(--glitch-text-shadow-2);
+    transform: translate(2px, 2px);
+  }
+  100% {
+     text-shadow: var(--glitch-text-shadow-1);
+    transform: translate(0);
+  }
+}
+
+
 @keyframes glitch-popup {
   from {
     transform: scale(0.5) skew(-15deg);
     opacity: 0;
   }
-
   to {
     transform: scale(1) skew(0);
     opacity: 1;
@@ -277,60 +234,23 @@ button:hover {
   0% {
     box-shadow: 0 0 15px var(--primary-color), 0 0 25px var(--secondary-color) inset;
   }
-
   50% {
     box-shadow: 0 0 20px var(--secondary-color), 0 0 30px var(--primary-color) inset;
   }
-
   100% {
     box-shadow: 0 0 15px var(--primary-color), 0 0 25px var(--secondary-color) inset;
   }
 }
 
 @keyframes glitch-text {
-
-  0%,
-  49% {
+  0%, 49% {
     text-shadow: var(--glitch-text-shadow-1);
   }
-
-  50%,
-  99% {
+  50%, 99% {
     text-shadow: var(--glitch-text-shadow-2);
   }
-
   100% {
     text-shadow: var(--glitch-text-shadow-1);
-  }
-}
-
-@keyframes glitch-text-2 {
-  0% {
-    transform: translate(0);
-    text-shadow: none;
-  }
-
-  20% {
-    transform: translate(-3px, 3px);
-    text-shadow: var(--glitch-text-shadow-1);
-  }
-
-  40% {
-    transform: translate(-3px, -3px);
-  }
-
-  60% {
-    transform: translate(3px, 3px);
-    text-shadow: var(--glitch-text-shadow-2);
-  }
-
-  80% {
-    transform: translate(3px, -3px);
-  }
-
-  100% {
-    transform: translate(0);
-    text-shadow: none;
   }
 }
 
@@ -338,12 +258,19 @@ button:hover {
   0% {
     filter: drop-shadow(0 0 0.5em var(--primary-color));
   }
-
   50% {
     filter: drop-shadow(0 0 1em var(--secondary-color));
   }
-
   100% {
     filter: drop-shadow(0 0 0.5em var(--primary-color));
   }
+}
+
+@keyframes glitch-text-2 {
+  0% { transform: translate(0); text-shadow: none; }
+  20% { transform: translate(-3px, 3px); text-shadow: var(--glitch-text-shadow-1); }
+  40% { transform: translate(-3px, -3px); }
+  60% { transform: translate(3px, 3px); text-shadow: var(--glitch-text-shadow-2); }
+  80% { transform: translate(3px, -3px); }
+  100% { transform: translate(0); text-shadow: none; }
 }
